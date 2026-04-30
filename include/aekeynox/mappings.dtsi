@@ -32,12 +32,12 @@
 };
 
 // Define a two-level key (e.g. punctuation key)
-#define TWO_LEVEL_KEY(name, base, shift) OMIT_IF_NO_REF name: name { \
-  compatible = "zmk,behavior-mod-morph";                             \
-  #binding-cells = <0>;                                              \
-  bindings = <base>, <shift>;                                        \
-  mods = <(MOD_LSFT|MOD_RSFT)>;                                      \
-};
+// #define TWO_LEVEL_KEY(name, base, shift) OMIT_IF_NO_REF name: name { \
+//   compatible = "zmk,behavior-mod-morph";                             \
+//   #binding-cells = <0>;                                              \
+//   bindings = <base>, <shift>;                                        \
+//   mods = <(MOD_LSFT MOD_RSFT)>;                                      \
+// };
 
 / {
   macros {
