@@ -132,7 +132,7 @@
         &none , &kp Q &kp W &kp E &kp R &kp T   ,   &kp Y &kp U &kp I     &kp O &kp P    , &none  ,
         &none ,&mt LSHIFT A   &mt LCTRL S  &mt LALT D  &mt LGUI F &kp G   ,   &kp H        &mt RGUI J  &mt RALT K  &mt RCTRL L  &mt LSHIFT SEMI , &none  ,
         &tog NOHRM , &kp Z &kp X &kp C &kp V &kp B   ,   &kp N &kp M &kp COMMA &kp DOT   &kp FSLH    , &tog GAMING  ,
-     &lt LAYER_MOUSE , &mt LSHIFT TAB , &lt LAYER_VIMNAV SPACE   ,   &lt LAYER_SYMBOLS  ENTER , &lt LAYER_NUMBER SPACE , &sc LAYER_NUM_ROW BSPC
+     &lt LAYER_MOUSE , &mt LSHIFT TAB , &lt LAYER_VIMNAV SPACE   ,   &lt LAYER_SYMBOLS  ENTER , &lt LAYER_NUMBERS SPACE , &kp  BSPC
       )>;
     };
 
@@ -142,7 +142,7 @@
         &trans , S_AT    S_LT    S_GT    S_DLLR  S_PRCNT   ,    S_CARET S_AMPS  S_STAR  S_SQT   S_GRAVE  , &trans  ,
         &trans , S_LBRC  S_LPAR  S_RPAR  S_RBRC  S_EQUAL   ,    S_BSLH  S_PLUS  S_MINUS S_FSLH  S_DQT    , &trans  ,
         &trans , S_TILDE S_LBKT  S_RBKT  S_UNDER S_HASH    ,    S_PIPE  S_EXCL  S_SEMI  S_COLON S_QMARK  , &trans  ,
-        &EZ_SL(LAYER_NUM_ROW) , &lt LAYER_NUM_ROW SPACE , &none   ,   &trans , &kp RALT , &trans
+        &EZ_SL(LAYER_NUMBERS) , &lt LAYER_NUMBERS SPACE , &none   ,   &trans , &kp RALT , &trans
       )>;
     };
 
@@ -162,7 +162,7 @@
       bindings = <SELENIUM_KEYMAP_BINDINGS(
         &none , &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4  &kp NUMBER_5, &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 , &none  ,
         &none , &trans &trans &trans &trans &trans ,    &trans &kp N4   &kp N5 &kp N6  &kp MULTIPLY , &kp KP_PLUS  ,
-        &none , &trans &trans &trans &trans &trans ,    &trans &kp N1   &kp N2 &kp N3  &kp   , &kp KP_MINUS  ,
+        &none , &trans &trans &trans &trans &trans ,    &trans &kp N1   &kp N2 &kp N3  &none   , &kp KP_MINUS  ,
                              &kp SPACE , &kp SPACE , &kp SPACE      ,    &kp SPACE , &kp SPACE , &kp SPACE
       )>;
     };
@@ -184,7 +184,7 @@
         &none , &kp TAB &kp Q &kp W &kp E &kp R   ,    &kp T &kp U &kp I     &kp O  &kp P   , &none  ,
         &none , &kp G &kp A &kp S &kp D &kp F   ,    &kp H &kp J &kp K     &kp L     &kp SEMI , &none  ,
         &none , &none    &kp X &kp C &kp V &kp B   ,    &kp N &kp M &kp COMMA &kp DOT   &none    , &none  ,
-            &hrm LGUI ESCAPE , &kp LCTL , &kp SPACE   ,    &kp ENTER , &kp SPACE , &lt LAYER_NUM_ROW BSPC
+            &hrm LGUI ESCAPE , &kp LCTL , &kp SPACE   ,    &kp ENTER , &kp SPACE , &lt LAYER_NUMBERS BSPC
       )>;
     };
 
