@@ -164,13 +164,15 @@
     //
 
 
-    // numbers {
-    //   display-name = "Numbers";
-    //   bindings = <SELENIUM_KEYMAP_BINDINGS(
-    //   &none , &kp N1 &kp N2 &kp N3 &kp N4  &kp N5 , &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 , &none  ,
-    //   &none , &trans &trans &trans &trans &trans ,    &trans  &kp N4   &kp N5 &kp N6  &kp MULTIPLY , &kp KP_PLUS,
-    //     &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N1   &kp N2 &kp N3  &kp FSLH     , &kp KP_MINUS, &kp SPACE , &kp SPACE , &kp SPACE      ,                      &kp SPACE , &kp SPACE , &kp N0)>;
-    // };
+    numbers {
+      display-name = "Numbers";
+      bindings = <SELENIUM_KEYMAP_BINDINGS(
+      &none , &kp N1 &kp N2 &kp N3 &kp N4  &kp N5 ,   &kp N6  &kp N7 &kp N8 &kp N9 &kp N0       , &none,
+      &none , &trans &trans &trans &trans &trans  ,   &trans  &kp N4 &kp N5 &kp N6 &kp MULTIPLY , &kp KP_PLUS,
+      &none , &trans &trans &trans &trans &trans  ,   &trans  &kp N1 &kp N2 &kp N3 &kp FSLH     , &kp KP_MINUS,
+      &kp SPACE , &kp SPACE , &kp SPACE           ,   &kp SPACE , &kp SPACE , &kp N0
+        )>;
+    };
 
 
     // mouse {
