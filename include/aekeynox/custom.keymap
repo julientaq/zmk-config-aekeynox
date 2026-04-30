@@ -152,7 +152,7 @@
       bindings = <SELENIUM_KEYMAP_BINDINGS(
         &none , X_UNDO X_MUTE X_VOLUP X_VOLDN X_BRIUP   ,   &kp HOME &kp PG_DN &kp PG_UP &kp END   &none , &none  ,
         &none , X_ALL  X_SAVE X_SHTAB &kp TAB X_BRIDN   ,   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none , &none  ,
-        &none , &none  X_CUT  X_COPY  X_PASTE &none     ,   &none    X_GAME_EL X_GAME_QW &none     &none , &none  ,
+        &none , &none  X_CUT  X_COPY  X_PASTE &none     ,   &none    &none     &none     &none     &none , &none  ,
                         &kp LALT , &kp LCTL , &none     ,   &none , &kp ENTER , &kp RALT
       )>;
     };
@@ -160,10 +160,10 @@
     numbers {
       display-name = "Numbers";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4  &kp NUMBER_5, &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 , &none  ,
-        &none , &trans &trans &trans &trans &trans ,    &trans &kp N4   &kp N5 &kp N6  &kp MULTIPLY , &kp KP_PLUS  ,
-        &none , &trans &trans &trans &trans &trans ,    &trans &kp N1   &kp N2 &kp N3  &none   , &kp KP_MINUS  ,
-                             &kp SPACE , &kp SPACE , &kp SPACE      ,    &kp SPACE , &kp SPACE , &kp SPACE
+        &none , &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4  &kp NUMBER_5  , &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 , &none  ,
+        &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N4   &kp N5 &kp N6  &kp MULTIPLY , &kp KP_PLUS,
+        &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N1   &kp N2 &kp N3  &kp FSLH     , &kp KP_MINUS,
+                       &kp SPACE , &kp SPACE , &kp SPACE      ,                      &kp SPACE , &kp SPACE , &kp N0
       )>;
     };
 
