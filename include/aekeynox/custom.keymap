@@ -11,8 +11,29 @@
 
 
 &lt { tapping-term-ms = <175>; };
-#define COMBO_TIMEOUT_MS 30
+#define COMBO_TIMEOUT_MS 50
 #define COMBO_LOCK_MS 125
+
+
+&msc {
+    acceleration-exponent = <1>;
+};
+
+&mt {
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    // bindings = <&kp>, <&kp>;
+};
+
+&mmv {
+    x-input-code = <INPUT_REL_X>;
+    y-input-code = <INPUT_REL_Y>;
+    time-to-max-speed-ms = <300>;
+    acceleration-exponent = <1>;
+};
+
 
 #define LAYER_BASE      0
 #define LAYER_SYMBOLS   1
@@ -28,16 +49,16 @@
 #define X_BRIDN &kp C_BRI_DN
 
 / {
-  behaviors {
-    ltsk: layer_tap_sticky_key {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      tapping-term-ms = <TAPPING_TERM>;
-      flavor = "tap-preferred";
-      bindings = <&mo>, <&osm>;
-    };
-
-  };
+  // behaviors {
+  //   ltsk: layer_tap_sticky_key {
+  //     compatible = "zmk,behavior-hold-tap";
+  //     #binding-cells = <2>;
+  //     tapping-term-ms = <TAPPING_TERM>;
+  //     flavor = "tap-preferred";
+  //     bindings = <&mo>, <&osm>;
+  //   };
+  //
+  // };
 
   combos {
     compatible= "zmk,combos";
