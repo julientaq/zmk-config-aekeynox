@@ -22,7 +22,7 @@
 // Some keyboard layouts and shortcuts may vary between Windows / macOS / Linux.
 // Uncomment one of the following lines if the host computer doen't run Windows.
 
-// #define MACOS
+#define MACOS
 // #define LINUX
 
 
