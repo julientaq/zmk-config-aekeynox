@@ -9,29 +9,39 @@
 #include "mappings.dtsi"  // key mapping helpers and macros
 #include "hold_taps.dtsi" // defines thumb keys and homerow mods
 
-#undef  HRM_S
-#undef  HRM_L
-#define HRM_S   &hrm LSFT S
-#define HRM_L   &hrm LSFT L
 
 &lt { tapping-term-ms = <175>; };
-#define COMBO_TIMEOUT_MS 17
+
+#define COMBO_TIMEOUT_MS 50
 #define COMBO_LOCK_MS 125
 
+
+&msc {
+    acceleration-exponent = <1>;
+};
+
+&mt {
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    // bindings = <&kp>, <&kp>;
+};
+
+&mmv {
+    x-input-code = <INPUT_REL_X>;
+    y-input-code = <INPUT_REL_Y>;
+    time-to-max-speed-ms = <300>;
+    acceleration-exponent = <1>;
+};
+
+
 #define LAYER_BASE      0
-#define LAYER_MIRROR    1
-#define LAYER_SYMBOLS   2
-#define LAYER_ODK       3
-#define LAYER_VIM_NAV   4
-#define LAYER_NUM_ROW   5
-#define LAYER_GAMING_EL 6
-#define LAYER_GAMING_QW 7
-
-#define S_MULT &kp LS(RA(I))
-
-#define X_BASE    &to LAYER_BASE
-#define X_GAME_EL &to LAYER_GAMING_EL
-#define X_GAME_QW &to LAYER_GAMING_QW
+#define LAYER_SYMBOLS   1
+#define LAYER_VIMNAV    2
+#define LAYER_NUMBERS   3
+#define LAYER_MOUSE     4
+#define LAYER_GAME      5
 
 #define X_MUTE  &kp C_MUTE
 #define X_VOLUP &kp C_VOL_UP
@@ -40,25 +50,16 @@
 #define X_BRIDN &kp C_BRI_DN
 
 / {
-  behaviors {
-    ltsk: layer_tap_sticky_key {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      tapping-term-ms = <TAPPING_TERM>;
-      flavor = "tap-preferred";
-      bindings = <&mo>, <&osm>;
-    };
-
-    // Macro to tap Ergo‑L’s ODK before the specified key
-    odk: one_dead_key_macro {
-      compatible = "zmk,behavior-dead-key";
-      #binding-cells = <1>;
-      dead-key = <O>;
-    };
-
-    TWO_LEVEL_KEY(dead_key, &EZ_SL(LAYER_ODK), &kp LS(O))
-    TWO_LEVEL_KEY(em_dash, &odk V, &odk B)
-  };
+  // behaviors {
+  //   ltsk: layer_tap_sticky_key {
+  //     compatible = "zmk,behavior-hold-tap";
+  //     #binding-cells = <2>;
+  //     tapping-term-ms = <TAPPING_TERM>;
+  //     flavor = "tap-preferred";
+  //     bindings = <&mo>, <&osm>;
+  //   };
+  //
+  // };
 
   combos {
     compatible= "zmk,combos";
@@ -66,35 +67,35 @@
     #define HOME_ROW 12
     #define BOT_ROW  24
 
+    #define LPINKY  1
     #define LRING   2
     #define LMIDDLE 3
     #define LINDEX  4
     #define RINDEX  7
     #define RMIDDLE 8
     #define RRING   9
+    #define RPINKY  10
 
-    compose_sd {
-      key-positions = <(HOME_ROW + LRING) (HOME_ROW + LMIDDLE)>;
-      bindings = <&kp NUBS>;
+    backspace {
+      key-positions = <(HOME_ROW + RMIDDLE) (HOME_ROW + RINDEX)>;
+      bindings = <&kp BSPC>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
     };
 
-    enter_df {
+    escape {
       key-positions = <(HOME_ROW + LMIDDLE) (HOME_ROW + LINDEX)>;
-      bindings = <&kp ENTER>;
+      bindings = <&kp ESC>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
+
     };
 
-    delete_word_kj {
-      key-positions = <(HOME_ROW + RINDEX) (HOME_ROW + RMIDDLE)>;
-      bindings = <&kp LC(BSPC)>;
+    tab {
+      key-positions = <(HOME_ROW + LRING) (HOME_ROW + LINDEX)>;
+      bindings = <&kp TAB>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
     };
 
     caps_word_lk {
@@ -103,7 +104,22 @@
       bindings = <&kp CAPSLOCK>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
+    };
+
+    plus {
+
+      key-positions = <(BOT_ROW + RRING) (BOT_ROW + RINDEX)>;
+      bindings = <&kp KP_PLUS>;
+      timeout-ms = <COMBO_TIMEOUT_MS>;
+      require-prior-idle-ms = <COMBO_LOCK_MS>;
+    };
+
+    minus {
+
+      key-positions = <(BOT_ROW + LRING) (BOT_ROW + LINDEX)>;
+      bindings = <&kp KP_MINUS>;
+      timeout-ms = <COMBO_TIMEOUT_MS>;
+      require-prior-idle-ms = <COMBO_LOCK_MS>;
     };
 
   };
@@ -114,20 +130,10 @@
     default_layer {
       display-name = "Base";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp Q &kp W &kp E &kp R &kp T   ,   &kp N &kp U &kp I     &dead_key &kp P    , &none  ,
-        &none , HRM_A HRM_S HRM_D HRM_F &kp G   ,   &kp H HRM_J HRM_K     HRM_L     HRM_SEMI , &none  ,
-        &none , &none &kp X &kp C &kp V &none   ,   &none &kp M &kp COMMA &kp DOT   &none    , &none  ,
-     &hrm LGUI ESCAPE , &ltsk LAYER_VIM_NAV LSHFT , &osl LAYER_MIRROR   ,   &kp ENTER , &lt LAYER_SYMBOLS SPACE , &sc LAYER_NUM_ROW BSPC
-      )>;
-    };
-
-    mirror_layer {
-      display-name = "Mirror";
-      bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp P    &dead_key &kp I     &kp U &kp N   ,   &none &none &none &none &none , &none  ,
-        &none , &kp SEMI &kp L     &kp K     &kp L &kp H   ,   &none &none &none &none &none , &none  ,
-        &none , &none    &kp DOT   &kp COMMA &kp M &none   ,   &none &none &none &none &none , &none  ,
-        &hrm LGUI ESCAPE , &ltsk LAYER_VIM_NAV LSHFT , &none   ,   &none , &lt LAYER_SYMBOLS SPACE , &lt LAYER_NUM_ROW BSPC
+         &none ,        &kp Q         &kp W        &kp E       &kp R      &kp T   ,       &kp Y  &kp U       &kp I       &kp O        &kp P             ,    &none  ,
+         &none ,        &mt LSHIFT A  &mt LCTRL S  &mt LALT D  &mt LGUI F &kp G   ,       &kp H  &mt RGUI J  &mt RALT K  &mt RCTRL L  &mt LSHIFT SEMI   ,    &none  ,
+         &tog NOHRM,    &kp Z         &kp X        &kp C       &kp V      &kp B   ,       &kp N  &kp M       &kp COMMA   &kp DOT      &kp FSLH                     ,    &tog GAMING  ,
+                    &mo LAYER_MOUSE ,   &mt LSHIFT TAB,   &lt LAYER_VIMNAV SPACE   ,   &lt LAYER_SYMBOLS  ENTER, &lt LAYER_NUMBERS SPACE, &kp  BSPC
       )>;
     };
 
@@ -137,57 +143,49 @@
         &trans , S_AT    S_LT    S_GT    S_DLLR  S_PRCNT   ,    S_CARET S_AMPS  S_STAR  S_SQT   S_GRAVE  , &trans  ,
         &trans , S_LBRC  S_LPAR  S_RPAR  S_RBRC  S_EQUAL   ,    S_BSLH  S_PLUS  S_MINUS S_FSLH  S_DQT    , &trans  ,
         &trans , S_TILDE S_LBKT  S_RBKT  S_UNDER S_HASH    ,    S_PIPE  S_EXCL  S_SEMI  S_COLON S_QMARK  , &trans  ,
-        &EZ_SL(LAYER_NUM_ROW) , &lt LAYER_NUM_ROW SPACE , &none   ,   &trans , &kp RALT , &trans
+        &EZ_SL(LAYER_NUMBERS) , &lt LAYER_NUMBERS SPACE , &none   ,   &trans , &kp RALT , &trans
       )>;
     };
 
-    super_odk {
-      display-name = "SuperOneDeadKey";
-      bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &odk Q &odk W &odk E &odk R   &kp Z   ,   &odk N &kp Y    &odk I     &odk O   &odk P    , &none  ,
-        &none , &odk A &odk S &odk D &odk F   &kp B   ,   &odk H &odk J   &odk K     &odk L   &odk SEMI , &none  ,
-        &none , &none  &odk Z &odk C &em_dash &none   ,   &none  &kp FSLH &odk COMMA &odk DOT &none     , &none  ,
-                   &kp LALT , &EZ_SK(LSHFT) , &none   ,   &none , &odk SPACE , &kp RALT
-      )>;
-    };
 
     vim_nav {
       display-name = "VimNav";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
         &none , X_UNDO X_MUTE X_VOLUP X_VOLDN X_BRIUP   ,   &kp HOME &kp PG_DN &kp PG_UP &kp END   &none , &none  ,
         &none , X_ALL  X_SAVE X_SHTAB &kp TAB X_BRIDN   ,   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none , &none  ,
-        &none , &none  X_CUT  X_COPY  X_PASTE &none     ,   &none    X_GAME_EL X_GAME_QW &none     &none , &none  ,
+        &none , &none  X_CUT  X_COPY  X_PASTE &none     ,   &none    &none     &none     &none     &none , &none  ,
                         &kp LALT , &kp LCTL , &none     ,   &none , &kp ENTER , &kp RALT
       )>;
     };
 
-    num_row {
-      display-name = "NumRow";
+    numbers {
+      display-name = "Numbers";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp LS(N1) &kp LS(N2) &kp LS(N3) S_HASH &kp LS(N5)  ,    &none  S_PIPE   S_MULT &kp O   &none  , &none  ,
-        &none , &kp N1     &kp N2     &kp N3     &kp N4 &kp N5      ,    &kp N6 &kp N7   &kp N8 &kp N9  &kp N0 , &none  ,
-        &none , &none      S_TILDE    S_QMARK    &odk V &none       ,    &none  S_COMMA  S_DOT  S_COLON &none  , &none  ,
-                             &kp SPACE , &kp LS(SPACE) , &none      ,    &none , &odk SPACE , &kp RALT
+        &none , &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4  &kp NUMBER_5  , &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 , &none  ,
+        &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N4   &kp N5 &kp N6  &kp MULTIPLY , &kp KP_PLUS,
+        &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N1   &kp N2 &kp N3  &kp FSLH     , &kp KP_MINUS,
+                       &kp SPACE , &kp SPACE , &kp SPACE      ,                      &kp SPACE , &kp SPACE , &kp N0
       )>;
     };
 
-    gaming_ergol {
-      display-name = "GamingErgol";
+    mouse {
+      display-name = "Mouse";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp LCTL &kp Q &kp W &kp E &kp R   ,    &kp N &kp U &kp I     &dead_key X_BASE   , &none  ,
-        &none , &kp LSFT &kp A &kp S &kp D &kp F   ,    &kp H &kp J &kp K     &kp L     &kp SEMI , &none  ,
-        &none , &none    &kp X &kp C &kp V &none   ,    &none &kp M &kp COMMA &kp DOT   &none    , &none  ,
-            &hrm LGUI ESCAPE , &kp SPACE , &none   ,    &none , &kp SPACE , &lt LAYER_NUM_ROW BSPC
+
+     &trans,    &trans     &trans   &trans    &trans     &trans   ,    &trans  &mmv MOVE_UP &mmv MOVE_UP &trans &trans,   &trans,
+     &trans,    &trans     &trans   &mkp MB3  &mkp MB1   &mkp MB2 ,    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans , &trans,
+     &trans,    &trans     &trans   &trans    &trans     &trans   ,    &trans   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  , &trans,
+                             &trans , &trans, &trans      ,    &trans , &trans , &trans
       )>;
     };
 
-    gaming_qwerty {
-      display-name = "GamingQwerty";
+    gaming {
+      display-name = "Gaming";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp LCTL &kp Q &kp T &kp D &kp J    ,   &kp J &kp K &kp COLON &kp L     X_BASE , &none  ,
-        &none , &kp LSFT &kp A &kp S &kp I &kp G    ,   &kp M &kp N &kp Y     &kp FSLH  &kp H  , &none  ,
-        &none , &none    &kp Z &kp X &kp W &none    ,   &none &kp F &kp U     &kp COMMA &none  , &none  ,
-            &hrm LGUI ESCAPE , &kp SPACE , &none    ,   &none , &kp SPACE , &lt LAYER_NUM_ROW BSPC
+        &none , &kp TAB &kp Q &kp W &kp E &kp R   ,    &kp T &kp U &kp I     &kp O  &kp P   , &none  ,
+        &none , &kp G &kp A &kp S &kp D &kp F   ,    &kp H &kp J &kp K     &kp L     &kp SEMI , &none  ,
+        &none , &none    &kp X &kp C &kp V &kp B   ,    &kp N &kp M &kp COMMA &kp DOT   &none    , &none  ,
+            &hrm LGUI ESCAPE , &kp LCTL , &kp SPACE   ,    &kp ENTER , &kp SPACE , &lt LAYER_NUMBERS BSPC
       )>;
     };
 
