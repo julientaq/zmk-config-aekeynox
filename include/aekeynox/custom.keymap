@@ -162,7 +162,7 @@
     numbers {
       display-name = "Numbers";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4  &kp NUMBER_5  , &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 , &none  ,
+        &none , &kp N1 &kp N1 &kp N3 &kp N4  &kp N5  , &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 , &none  ,
         &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N4   &kp N5 &kp N6  &kp MULTIPLY , &kp KP_PLUS,
         &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N1   &kp N2 &kp N3  &kp FSLH     , &kp KP_MINUS,
                        &kp SPACE , &kp SPACE , &kp SPACE      ,                      &kp SPACE , &kp SPACE , &kp N0
