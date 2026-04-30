@@ -1,6 +1,6 @@
 # Same contents as `build.yaml` except:
 # - zmk studio isn’t enabled (don’t use it, so might as well use the faster builds)
-# - it builds a (maybe but it’s mine) janky ass custom keymap (seriously, **don’t** use it)
+# - it builds my janky ass custom keymap (seriously, **don’t** use it)
 
 include:
   # Quacken Zero + SparkFun RP2040

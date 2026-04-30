@@ -1,4 +1,4 @@
-// #include <behaviors.dtsi>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
 // Define a dead layer key
@@ -36,7 +36,7 @@
   compatible = "zmk,behavior-mod-morph";                             \
   #binding-cells = <0>;                                              \
   bindings = <base>, <shift>;                                        \
-  mods = <(MOD_LSFT MOD_RSFT)>;                                      \
+  mods = <(MOD_LSFT|MOD_RSFT)>;                                      \
 };
 
 / {
