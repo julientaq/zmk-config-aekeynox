@@ -15,7 +15,7 @@
 #define HRM_L   &hrm LSFT L
 
 &lt { tapping-term-ms = <175>; };
-#define COMBO_TIMEOUT_MS 17
+#define COMBO_TIMEOUT_MS 30
 #define COMBO_LOCK_MS 125
 
 #define LAYER_BASE      0
@@ -63,7 +63,6 @@
       bindings = <&kp BSPC>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
     };
 
     escape {
@@ -71,7 +70,6 @@
       bindings = <&kp ESC>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
 
     };
 
@@ -80,7 +78,6 @@
       bindings = <&kp TAB>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
     };
 
     caps_word_lk {
@@ -89,7 +86,6 @@
       bindings = <&kp CAPSLOCK>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
     };
 
     plus {
@@ -98,7 +94,6 @@
       bindings = <&kp KP_PLUS>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
     };
 
     minus {
@@ -107,7 +102,6 @@
       bindings = <&kp KP_MINUS>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
-      layers = <LAYER_BASE>;
     };
 
   };
