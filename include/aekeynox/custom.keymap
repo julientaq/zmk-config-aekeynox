@@ -9,13 +9,23 @@
 #include "bindings.h"     // default SELENIUM_KEYMAP_BINDINGS macro
 #include "mappings.dtsi"  // key mapping helpers and macros
 #include "hold_taps.dtsi" // defines thumb keys and homerow mods
+
+
+
+
+//mouse
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+
 #include <dt-bindings/zmk/pointing.h>
+
+
+
 
 &lt { tapping-term-ms = <175>; };
 
 #define COMBO_TIMEOUT_MS 50
 #define COMBO_LOCK_MS 125
-
 
 &msc {
     acceleration-exponent = <1>;
