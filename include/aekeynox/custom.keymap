@@ -9,10 +9,6 @@
 #include "mappings.dtsi"  // key mapping helpers and macros
 #include "hold_taps.dtsi" // defines thumb keys and homerow mods
 
-#undef  HRM_S
-#undef  HRM_L
-#define HRM_S   &hrm LSFT S
-#define HRM_L   &hrm LSFT L
 
 &lt { tapping-term-ms = <175>; };
 #define COMBO_TIMEOUT_MS 30
