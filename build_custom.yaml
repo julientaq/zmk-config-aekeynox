@@ -54,7 +54,7 @@ include:
   ##
 
   # Quacken Flex (RP2040)
-  - board: quacken_flex/rp2040
+  - board: quacken_flex/rp2040//zmk
     artifact-name: quacken_flex
     cmake-args: -DKEYMAP_FILE=/__w/zmk-config-aekeynox/zmk-config-aekeynox/include/aekeynox/custom.keymap
 
