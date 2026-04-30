@@ -31,7 +31,8 @@
     ;                                                         \
 };
 
-Define a two-level key (e.g. punctuation key)
+// Define a two-level key (e.g. punctuation key)
+
 #define TWO_LEVEL_KEY(name, base, shift) OMIT_IF_NO_REF name: name { \
   compatible = "zmk,behavior-mod-morph";                             \
   #binding-cells = <0>;                                              \
