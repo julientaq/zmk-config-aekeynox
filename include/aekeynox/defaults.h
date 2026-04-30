@@ -33,3 +33,7 @@
 #else
   #define OMIT_IF_NO_REF
 #endif
+
+CONFIG_ZMK_POINTING=y
+
+
