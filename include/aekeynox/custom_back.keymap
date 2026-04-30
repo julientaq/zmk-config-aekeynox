@@ -4,6 +4,7 @@
   #include "settings.h"   // user settings
 #endif
 
+#include "defaults.h"     // default options and safeguards
 #include "aliases.h"      // defines symbols and actions
 #include "bindings.h"     // default SELENIUM_KEYMAP_BINDINGS macro
 #include "mappings.dtsi"  // key mapping helpers and macros
@@ -50,16 +51,16 @@
 #define X_BRIDN &kp C_BRI_DN
 
 / {
-  // behaviors {
-  //   ltsk: layer_tap_sticky_key {
-  //     compatible = "zmk,behavior-hold-tap";
-  //     #binding-cells = <2>;
-  //     tapping-term-ms = <TAPPING_TERM>;
-  //     flavor = "tap-preferred";
-  //     bindings = <&mo>, <&osm>;
-  //   };
-  //
-  // };
+  behaviors {
+    ltsk: layer_tap_sticky_key {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <TAPPING_TERM>;
+      flavor = "tap-preferred";
+      bindings = <&mo>, <&osm>;
+    };
+
+  };
 
   combos {
     compatible= "zmk,combos";
@@ -131,9 +132,9 @@
       display-name = "Base";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
          &none ,        &kp Q         &kp W        &kp E       &kp R      &kp T   ,       &kp Y  &kp U       &kp I       &kp O        &kp P             ,    &none  ,
-         &none ,        &mt LSHIFT A  &mt LCTRL S  &mt LALT D  &mt LGUI F &kp G   ,       &kp H  &mt RGUI J  &mt RALT K  &mt RCTRL L  &mt LSHIFT SEMI   ,    &none  ,
-         &tog NOHRM,    &kp Z         &kp X        &kp C       &kp V      &kp B   ,       &kp N  &kp M       &kp COMMA   &kp DOT      &kp FSLH                     ,    &tog GAMING  ,
-                    &mo LAYER_MOUSE ,   &mt LSHIFT TAB,   &lt LAYER_VIMNAV SPACE   ,   &lt LAYER_SYMBOLS  ENTER, &lt LAYER_NUMBERS SPACE, &kp  BSPC
+         &tog GAMING ,        &mt LSHIFT A  &mt LCTRL S  &mt LALT D  &mt LGUI F &kp G   ,       &kp H  &mt RGUI J  &mt RALT K  &mt RCTRL L  &mt LSHIFT SEMI   ,    &tog GAMING  ,
+         &tog GAMING,    &kp Z         &kp X        &kp C       &kp V      &kp B   ,       &kp N  &kp M       &kp COMMA   &kp DOT      &kp FSLH                     ,    &tog GAMING  ,
+                    &lt LAYER_MOUSE SPACE ,   &mt LSHIFT TAB,   &lt LAYER_VIMNAV SPACE   ,   &lt LAYER_SYMBOLS  ENTER, &lt LAYER_NUMBERS SPACE, &kp  BSPC
       )>;
     };
 
@@ -161,7 +162,7 @@
     numbers {
       display-name = "Numbers";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
-        &none , &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4  &kp NUMBER_5  , &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 , &none  ,
+        &none , &kp N1 &kp N1 &kp N3 &kp N4  &kp N5  , &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 , &none  ,
         &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N4   &kp N5 &kp N6  &kp MULTIPLY , &kp KP_PLUS,
         &none , &trans &trans &trans &trans &trans ,                                 &trans   &kp N1   &kp N2 &kp N3  &kp FSLH     , &kp KP_MINUS,
                        &kp SPACE , &kp SPACE , &kp SPACE      ,                      &kp SPACE , &kp SPACE , &kp N0
