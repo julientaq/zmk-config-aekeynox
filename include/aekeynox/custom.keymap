@@ -110,7 +110,8 @@
     };
 
     caps_word_lk {
-      key-positions = <(HOME_ROW + RMIDDLE) (HOME_ROW + RRING)>;
+
+      key-positions = <(BOT_ROW + LRING) (BOT_ROW + LMIDDLE) (BOT_ROW + RINDEX)>;
       /* bindings = <&caps_word>; */
       bindings = <&kp CAPSLOCK>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
