@@ -24,7 +24,7 @@
 
 &lt { tapping-term-ms = <175>; };
 
-#define COMBO_TIMEOUT_MS 50
+#define COMBO_TIMEOUT_MS 80
 #define COMBO_LOCK_MS 125
 
 &msc {
@@ -42,8 +42,8 @@
 &mmv {
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
-    time-to-max-speed-ms = <300>;
-    acceleration-exponent = <1>;
+    time-to-max-speed-ms = <200>;
+    acceleration-exponent = <1.5>;
 };
 
 
@@ -109,8 +109,8 @@
       require-prior-idle-ms = <COMBO_LOCK_MS>;
     };
 
-    caps_word_lk {
 
+    caps_word_lk {
       key-positions = <(BOT_ROW + LRING) (BOT_ROW + LMIDDLE) (BOT_ROW + RINDEX)>;
       /* bindings = <&caps_word>; */
       bindings = <&kp CAPSLOCK>;
