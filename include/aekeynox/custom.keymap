@@ -145,7 +145,7 @@
          &none ,        &kp Q         &kp W        &kp E       &kp R      &kp T   ,       &kp Y  &kp U       &kp I       &kp O        &kp P             ,    &none  ,
          &tog LAYER_GAME ,        &mt LSHIFT A  &mt LCTRL S  &mt LALT D  &mt LGUI F &kp G   ,       &kp H  &mt RGUI J  &mt RALT K  &mt RCTRL L  &mt LSHIFT SEMI   ,    &tog LAYER_GAME  ,
          &tog LAYER_GAME,    &mt LSHIFT Z         &kp X        &kp C       &kp V      &kp B   ,       &kp N  &kp M       &kp COMMA   &kp DOT      &mt LSHIFT FSLH                     ,    &tog LAYER_GAME  ,
-          &lt LAYER_MOUSE SPACE ,   &mt LSHIFT TAB,   &lt LAYER_NUMBERS SPACE   ,   &lt LAYER_VIMNAV  ENTER, &lt LAYER_SYMBOLS TAB, &lt LAYER_MOUSE BSPC
+         &mt LSHIFT TAB, &lt LAYER_MOUSE SPACE ,  &lt LAYER_NUMBERS SPACE   ,   &lt LAYER_SYMBOLS  ENTER, &lt LAYER_VIMNAV TAB, &lt LAYER_MOUSE BSPC
       )>;
 
     };
