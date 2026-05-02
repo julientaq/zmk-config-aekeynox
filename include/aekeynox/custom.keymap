@@ -27,7 +27,7 @@
 
 &lt { tapping-term-ms = <175>; };
 
-#define COMBO_TIMEOUT_MS 20
+#define COMBO_TIMEOUT_MS 50
 #define COMBO_LOCK_MS 125
 
 &msc {
