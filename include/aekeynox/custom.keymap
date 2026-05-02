@@ -124,7 +124,7 @@
     plus {
 
       key-positions = <(BOT_ROW + RMIDDLE) (BOT_ROW + RINDEX)>;
-      bindings = <&kp KP_PLUS>;
+      bindings = <&kp EQUAL>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
     };
@@ -132,7 +132,7 @@
     minus {
 
       key-positions = <(BOT_ROW + LMIDDLE) (BOT_ROW + LINDEX)>;
-      bindings = <&kp KP_MINUS>;
+      bindings = <&kp MINUS>;
       timeout-ms = <COMBO_TIMEOUT_MS>;
       require-prior-idle-ms = <COMBO_LOCK_MS>;
     };
