@@ -147,7 +147,7 @@
       bindings = <SELENIUM_KEYMAP_BINDINGS(
          &none ,        &kp Q         &kp W        &kp E       &kp R      &kp T   ,       &kp Y  &kp U       &kp I       &kp O        &kp P             ,    &none  ,
          &tog LAYER_GAME ,        &mt LSHIFT A  &mt LCTRL S  &mt LALT D  &mt LGUI F &kp G   ,       &kp H  &mt RGUI J  &mt RALT K  &mt RCTRL L  &mt LSHIFT SEMI   ,    &tog LAYER_GAME  ,
-         &tog LAYER_GAME,    &mt LSHIFT Z         &kp X        &kp C       &kp V      &kp B   ,       &kp N  &kp M       &kp COMMA   &kp DOT      &mt LSHIFT FSLH                     ,    &tog LAYER_GAME  ,
+         &tog LAYER_GAME,    &mt LSHIFT Z         &kp X        &kp C       &kp V      &kp B   ,       &kp N  &kp M       &kp COMMA   &kp DOT      &mt LSHIFT FSLH ,    &tog LAYER_GAME  ,
          &mt LSHIFT TAB,   &lt LAYER__MOUSE SPACE , &lt LAYER_NUMBERS SPACE  ,   &lt LAYER_VIMNAV TAB, &lt LAYER_SYMBOLS  ENTER, &lt LAYER_MOUSE BSPC
       )>;
 
@@ -170,7 +170,7 @@
       display-name = "VimNav";
       bindings = <SELENIUM_KEYMAP_BINDINGS(
         &none , X_UNDO X_MUTE X_VOLUP X_VOLDN X_BRIUP   ,   &kp HOME &kp PG_DN &kp PG_UP &kp END   &none , &none  ,
-        &none , X_ALL  X_SAVE X_SHTAB &kp TAB X_BRIDN   ,   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none , &none  ,
+        &none , &trans &trans &trans &trans X_BRIDN   ,   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none , &none  ,
         &none , &none  X_CUT  X_COPY  X_PASTE &none     ,   &none    &none     &none     &none     &none , &none  ,
                         &kp LALT , &kp LCTL , &none     ,   &none , &kp ENTER , &kp RALT
       )>;
