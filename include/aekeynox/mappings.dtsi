@@ -41,15 +41,16 @@
 
 / {
   macros {
-    alt_tab {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
+alt_tab {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
 
-        bindings =
-            <&macro_press &kp LALT>,
-            <&macro_tap &kp TAB>,
-            <&macro_release &kp LALT>;
-    };
+    bindings =
+        <&macro_press &kp LALT>,
+        <&macro_tap &kp TAB>,
+        <&macro_pause_for_release>,
+        <&macro_release &kp LALT>;
+};
     OMIT_IF_NO_REF digraph: digraph {
       compatible = "zmk,behavior-macro-two-param";
       #binding-cells = <2>;
